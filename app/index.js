@@ -4,25 +4,21 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var bodyParser = require('body-parser');
 var HotLoaderColl = require('./db').HotLoaderColl;
+var baseDir = __dirname ;
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-app.use('/public', express.static('public'));
+app.use('/public', express.static(baseDir + '/public'));
 
 app.get('/', function(req, res) {
-  res.sendFile("dispatcher.js", {root: "./public"});
+  res.sendFile("dispatcher.js", {root: baseDir + "/public"});
 });
 app.get('/meteor-hot-loader-running', function(req, res) {
   res.header({"Access-Control-Allow-Origin": "*"});
   res.status(200);
   res.send(JSON.stringify({status: "running"}));
 });
-
-http.listen(3333, function() {
-  console.log("Meteor hot-loader rumbling on *:3333");
-});
-
 
 app.post('/hotload', function(req, res) {
   var filepath = req.body.path,
@@ -117,3 +113,5 @@ var Sockets = {
     io.emit('push code', doc);
   }
 };
+
+module.exports = http;

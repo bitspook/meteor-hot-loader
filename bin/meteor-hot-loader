@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+var cli = require("commander"),
+    path = require("path"),
+    fs = require('fs'),
+    args = process.argv.filter(function(a) {return !!a;}),
+    app = require("../app"),
+    Watcher = require("../watcher");
+
+
+cli
+  .version("0.0.1")
+  .option("-p, --port <port>", "port where hot-loader should run")
+  .parse(args);
+
+
+var port = cli.port || 3333,
+    url = 'http://0.0.0.0:'+port;
+
+var isAppDir = function(dir) {
+  return fs.existsSync(path.resolve(dir, ".meteor"));
+};
+
+if (!isAppDir(process.cwd())) {
+  console.error("Not in meteor project");
+  process.exit();
+}
+
+var watcher = new Watcher(url);
+
+app.listen(3333, function() {
+  console.log("Meteor hot-loader rumbling on *:3333");
+});
