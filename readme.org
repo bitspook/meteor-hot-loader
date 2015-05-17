@@ -1,0 +1,23 @@
+* meteor-hot-loader
+Npm module to hot-pushing code into your meteor app.
+** Why?
+Meteor rebuilds (refreshes client) the app everytime a change is made. This module along with a companion meteor package `channikhabra:hot-loader` allow you to hot-push the code into your meteor app without refreshing the page.
+** Install
+#+BEGIN_SRC bash
+[sudo] npm install -g meteor-hot-loader
+#+END_SRC
+You'll also need to install `channikhabra:hot-loader` package in your meteor app
+#+BEGIN_SRC bash
+cd /my/meteor/app
+meteor add channikhabra:hot-loader
+#+END_SRC
+** Use
+#+BEGIN_SRC bash
+cd /my/meteor/app
+meteor-hot-loader
+#+END_SRC
+This will hot-push code into your meteor app whenever you change a file in your meteor app. That includes client side code and code that runs on both client and server.
+** But why a separate module?
+[[https://github.com/channikhabra/channikhabra-hot-loader#why-separate-npm-module%5D][That]] is why.
+** I want a meteor-only solution for this 😤
+Well, I did implement a meteor-only way, but it isn't fast enough to be useable for the reasons mentioned above. You can give it a shot though:

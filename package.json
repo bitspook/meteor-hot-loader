@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ckhabra007@gmail.com (https://channikhabra.github.io/)",
+  "author": "ckhabra@gmail.com (https://channikhabra.github.io/)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.12.4",
