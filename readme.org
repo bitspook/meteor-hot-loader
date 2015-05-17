@@ -20,4 +20,4 @@ This will hot-push code into your meteor app whenever you change a file in your 
 ** But why a separate module?
 [[https://github.com/channikhabra/channikhabra-hot-loader#why-separate-npm-module%5D][That]] is why.
 ** I want a meteor-only solution for this 😤
-Well, I did implement a meteor-only way, but it isn't fast enough to be useable for the reasons mentioned above. You can give it a shot though:
+Well, I did implement a meteor-only way, but it isn't fast enough to be useable for the reasons mentioned above. You can give it a shot though: [[https://github.com/channikhabra/channikhabra-hot-loader-legacy][channikhabra:hot-loader-legacy]]
