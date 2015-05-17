@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use('/public', express.static('public'));
 
 app.get('/', function(req, res) {
-  res.sendFile("client-script.js", {root: "./public"});
+  res.sendFile("dispatcher.js", {root: "./public"});
 });
 app.get('/meteor-hot-loader-running', function(req, res) {
   res.header({"Access-Control-Allow-Origin": "*"});
