@@ -13,8 +13,14 @@ app.use('/public', express.static('public'));
 app.get('/', function(req, res) {
   res.sendFile("client-script.js", {root: "./public"});
 });
+app.get('/meteor-hot-loader-running', function(req, res) {
+  res.header({"Access-Control-Allow-Origin": "*"});
+  res.status(200);
+  res.send(JSON.stringify({status: "running"}));
+});
+
 http.listen(3333, function() {
-  console.log("Meteor hor loader rumbling on *:3333");
+  console.log("Meteor hot-loader rumbling on *:3333");
 });
 
 
